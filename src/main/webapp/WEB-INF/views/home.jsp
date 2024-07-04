@@ -44,7 +44,8 @@
                         </li>
                     </c:when>
                     <c:otherwise>
-                        <li class="nav-links login"><a href="login"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
+                        <li class="nav-links login"><a href="login"><i
+                                class="fa-solid fa-right-to-bracket"></i>Login</a>
                         </li>
                     </c:otherwise>
                 </c:choose>
@@ -63,12 +64,14 @@
                 your disease.</p>
             <!-- Search Bar -->
             <div class="search-container">
-                <form:form action="" method="GET">
-                    <input class="search-bar" type="text" name="search" placeholder="Search for medicine..." value="">
-                    <a href="#"><i class="fa-solid fa-magnifying-glass icon-search"></i></a>
-                </form:form>
-                <div id="recent-searches"></div>
+                <form method="GET" action="<c:url value='/drugs/search'/>">
+                    <input class="search-bar form-control" type="text" name="query" placeholder="Search for medicine..."
+                           value="">
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> Search
+                    </button>
+                </form>
             </div>
+
         </div>
     </div>
 </div>
