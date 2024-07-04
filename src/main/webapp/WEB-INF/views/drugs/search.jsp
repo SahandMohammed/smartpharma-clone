@@ -5,27 +5,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<c:url value='/assets/css/style.css'/>">
     <title>Search Results</title>
 </head>
 <body>
-<nav>
-    <!-- Navigation setup -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="<c:url value='/'/>">SmartPharma</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="<c:url value='/index.jsp'/>">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<c:url value='/about.jsp'/>">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<c:url value='/contact.jsp'/>">Contact Us</a>
+                </li>
+                <c:choose>
+                    <c:when test="${not empty sessionScope.user}">
+                        <li class="nav-item">
+                            <a class="nav-link">Welcome, ${sessionScope.user.username}!</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<c:url value='/logout'/>">Logout</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<c:url value='/login'/>">Login</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+            </ul>
+        </div>
+    </div>
 </nav>
-<div class="search-results-container">
-    <h1>Search Results</h1>
-    <div class="results">
+<div class="container mt-4">
+    <h1 class="mb-3">Search Results</h1>
+    <div class="list-group">
         <c:if test="${not empty drugs}">
             <c:forEach items="${drugs}" var="drug">
-                <div class="result-item">
-                    <a href="<c:url value='/drugs/druginfo?id=${drug.id}'/>">${drug.name}</a>
-                </div>
+                <a href="<c:url value='/drugs/druginfo?id=${drug.id}'/>"
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <span class="text-primary font-weight-bold">${drug.name}</span>
+                    <small class="text-muted">${drug.description}</small>
+                </a>
             </c:forEach>
         </c:if>
         <c:if test="${empty drugs}">
-            <p>No results found.</p>
+            <p class="list-group-item">No results found.</p>
         </c:if>
     </div>
 </div>
+<script src="https://kit.fontawesome.com/7bba4c01e2.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
