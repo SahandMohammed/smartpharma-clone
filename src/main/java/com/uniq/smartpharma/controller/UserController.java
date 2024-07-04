@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class UserController {
 
@@ -23,9 +25,10 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute("user") User user, RedirectAttributes redirectAttributes) {
-        boolean authenticated = userService.authenticate(user.getEmail(), user.getPassword());
-        if (authenticated) {
+    public String login(@ModelAttribute("user") User user, HttpSession session, RedirectAttributes redirectAttributes) {
+        User authenticatedUser = userService.authenticate(user.getEmail(), user.getPassword());
+        if (authenticatedUser != null) {
+            session.setAttribute("user", authenticatedUser);
             return "redirect:/";
         } else {
             redirectAttributes.addFlashAttribute("error", "Invalid email or password");
@@ -45,8 +48,14 @@ public class UserController {
         if (registered) {
             return "redirect:/login";
         } else {
-            redirectAttributes.addFlashAttribute("error", "Registration failed");
+            redirectAttributes.addFlashAttribute("error", "Email already exists");
             return "redirect:/register";
         }
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/login";
     }
 }

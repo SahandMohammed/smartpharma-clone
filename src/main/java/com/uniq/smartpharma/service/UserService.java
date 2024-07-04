@@ -11,24 +11,21 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public boolean authenticate(String email, String password) {
+    public User authenticate(String email, String password) {
         User user = userRepository.findByEmail(email);
-        if (user != null) {
-            System.out.println("Retrieved user: " + user.getUsername());
-            System.out.println("Stored password: " + user.getPassword());
-            System.out.println("Provided password: " + password);
-            if (user.getPassword().equals(password)) {
-                System.out.println("Authentication successful for user: " + email);
-                return true;
-            }
+        if (user != null && user.getPassword().equals(password)) {
+            return user; // Return the full user object
         }
-        System.out.println("Authentication failed for user: " + email);
-        return false;
+        return null;
+    }
+
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
     public boolean register(User user) {
         if (userRepository.findByEmail(user.getEmail()) != null) {
-            return false; // User already exists
+            return false; // User with this email already exists
         }
         userRepository.save(user);
         return true;
