@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -16,17 +17,18 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/login")
-    public String showLoginForm() {
+    public String showLoginForm(Model model) {
+        model.addAttribute("user", new User());
         return "login";
     }
 
     @PostMapping("/login")
-    public String login(User user, RedirectAttributes redirectAttributes) {
-        boolean authenticated = userService.authenticate(user.getUsername(), user.getPassword());
+    public String login(@ModelAttribute("user") User user, RedirectAttributes redirectAttributes) {
+        boolean authenticated = userService.authenticate(user.getEmail(), user.getPassword());
         if (authenticated) {
-            return "redirect:/dashboard";
+            return "redirect:/";
         } else {
-            redirectAttributes.addFlashAttribute("error", "Invalid username or password");
+            redirectAttributes.addFlashAttribute("error", "Invalid email or password");
             return "redirect:/login";
         }
     }
@@ -38,7 +40,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String register(User user, RedirectAttributes redirectAttributes) {
+    public String register(@ModelAttribute("user") User user, RedirectAttributes redirectAttributes) {
         boolean registered = userService.register(user);
         if (registered) {
             return "redirect:/login";
