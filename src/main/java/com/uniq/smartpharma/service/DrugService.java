@@ -5,6 +5,7 @@ import com.uniq.smartpharma.repository.DrugRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -18,10 +19,16 @@ public class DrugService {
     }
 
     public List<Drug> searchDrugs(String search) {
-        return drugRepository.findByNameContainingIgnoreCase(search);
+        if (search == null || search.trim().isEmpty()) {
+            // Return empty list if search is null or empty
+            return Collections.emptyList();
+        }
+        return drugRepository.findByNameStartingWithIgnoreCase(search.toLowerCase());
     }
+
 
     public Drug findDrugById(Long id) {
         return drugRepository.findById(id).orElse(null);
     }
+
 }

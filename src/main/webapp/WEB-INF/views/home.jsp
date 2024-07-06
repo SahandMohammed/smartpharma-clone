@@ -12,6 +12,7 @@
           rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="<c:url value='/assets/css/style.css'/>">
+
     <title>Smart Pharma</title>
 </head>
 
@@ -45,8 +46,7 @@
                     </c:when>
                     <c:otherwise>
                         <li class="nav-links login"><a href="login"><i
-                                class="fa-solid fa-right-to-bracket"></i>Login</a>
-                        </li>
+                                class="fa-solid fa-right-to-bracket"></i>Login</a></li>
                     </c:otherwise>
                 </c:choose>
                 <a href="#" class="sun-icon"><i class="sun-ic fa-regular fa-sun fa-xl"></i></a>
@@ -54,6 +54,7 @@
         </div>
     </div>
 </nav>
+
 <!-- Hero Section -->
 <div class="hero">
     <div class="container">
@@ -64,13 +65,14 @@
                 your disease.</p>
             <!-- Search Bar -->
             <div class="search-container">
-                <form method="GET" action="<c:url value='/drugs/search'/>">
-                    <input class="search-bar form-control" type="text" name="query" placeholder="Search for medicine..."
-                           value="">
-                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> Search
-                    </button>
+                <form id="searchForm" method="GET" action="<c:url value='/drugs/search'/>">
+                    <input class="search-bar form-control" type="text" id="searchQuery" name="query"
+                           placeholder="Search for medicine..." autocomplete="off">
+                    <a href="#" id="submitSearch"><i class="fa-solid fa-magnifying-glass icon-search"></i></a>
                 </form>
+                <div id="autocomplete-results" class="list-group"></div>
             </div>
+
 
         </div>
     </div>
@@ -96,9 +98,23 @@
         </ul>
     </div>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://kit.fontawesome.com/7bba4c01e2.js" crossorigin="anonymous"></script>
-<script src="src/js/index.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let submitBtn = document.getElementById('submitSearch');
+        if (submitBtn) {
+            submitBtn.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent the default anchor behavior
+                document.getElementById('searchForm').submit(); // Submit the form
+                console.log('Form submitted');
+            });
+        } else {
+            console.log('Submit button not found');
+        }
+    });
+</script>
 </body>
 
 </html>
