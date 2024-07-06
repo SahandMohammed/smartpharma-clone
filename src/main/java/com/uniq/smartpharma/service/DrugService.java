@@ -1,6 +1,6 @@
 package com.uniq.smartpharma.service;
 
-import com.uniq.smartpharma.model.Drug;
+import com.uniq.smartpharma.model.Drugs;
 import com.uniq.smartpharma.repository.DrugRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ public class DrugService {
         this.drugRepository = drugRepository;
     }
 
-    public List<Drug> searchDrugs(String search) {
+    public List<Drugs> searchDrugs(String search) {
         if (search == null || search.trim().isEmpty()) {
             // Return empty list if search is null or empty
             return Collections.emptyList();
@@ -34,7 +34,7 @@ public class DrugService {
     }
 
 
-    public Drug findDrugById(Long id) {
+    public Drugs findDrugById(Long id) {
         return drugRepository.findById(id).orElse(null);
     }
 

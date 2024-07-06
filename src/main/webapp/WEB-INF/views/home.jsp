@@ -49,7 +49,6 @@
                                 class="fa-solid fa-right-to-bracket"></i>Login</a></li>
                     </c:otherwise>
                 </c:choose>
-                <a href="#" class="sun-icon"><i class="sun-ic fa-regular fa-sun fa-xl"></i></a>
             </ul>
         </div>
     </div>

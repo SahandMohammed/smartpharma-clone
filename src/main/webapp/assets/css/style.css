@@ -38,6 +38,10 @@ body {
     font-weight: 500;
 }
 
+nav {
+    background-color: #ffffff;
+}
+
 nav .container {
     display: flex;
     justify-content: space-between;

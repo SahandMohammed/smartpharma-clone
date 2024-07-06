@@ -20,14 +20,21 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <form class="d-flex navbar-search">
-                        <input class="form-control me-2" type="search" placeholder="Search for medicine..."
+                    <form class="d-flex navbar-search" method="get" action="<c:url value='/drugs/search'/>">
+                        <input class="form-control me-2" name="query" id="query" type="search" placeholder="Search for medicine..."
                                aria-label="Search">
-                        <a href="#" class="icon" id="submitSearch"><i class="fa-solid fa-magnifying-glass icon-search"></i></a>
+                        <a href="#" class="icon" id="submitSearch"><i
+                                class="fa-solid fa-magnifying-glass icon-search"></i></a>
                     </form>
                 </li>
             </ul>
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="<c:url value='/cart'/>">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="badge bg-secondary">${cart.size}</span>
+                    </a>
+                </li>
                 <c:choose>
                     <c:when test="${not empty sessionScope.user}">
                         <li class="nav-item">
@@ -52,11 +59,11 @@
     <h1 class="mb-3">Search Results</h1>
     <div class="list-group">
         <c:if test="${not empty drugs}">
-            <c:forEach items="${drugs}" var="drug">
-                <a href="<c:url value='/drugs/druginfo?id=${drug.id}'/>"
+            <c:forEach items="${drugs}" var="drugs">
+                <a href="<c:url value='/drugs/druginfo?id=${drugs.id}'/>"
                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    <span class="text-primary font-weight-bold">${drug.name}</span>
-                    <small class="text-muted">${drug.description}</small>
+                    <span class="text-primary font-weight-bold">${drugs.name}</span>
+                    <small class="text-muted">${drugs.description}</small>
                 </a>
             </c:forEach>
         </c:if>
