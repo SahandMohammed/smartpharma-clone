@@ -59,6 +59,7 @@ public class DrugController {
     public String searchDrugs(@RequestParam("query") String query, Model model) {
         List<Drugs> drugs = drugService.searchDrugs(query);
         model.addAttribute("drugs", drugs);
+        model.addAttribute("query", query); // Pass the query back to the view for reuse
         return "drugs/search"; // This resolves to /WEB-INF/views/drugs/search.jsp
     }
 

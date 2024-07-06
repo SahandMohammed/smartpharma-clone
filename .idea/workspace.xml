@@ -9,20 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b04107b-0f02-40cd-a144-d6245b82431a" name="Changes" comment="UI Enhancement">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/model/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/model/CartItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cart.jsp" afterDir="false" />
+    <list default="true" id="8b04107b-0f02-40cd-a144-d6245b82431a" name="Changes" comment="Implemented Cart">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/controller/DrugController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/controller/DrugController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/model/Drug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/model/Drugs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/repository/DrugRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/repository/DrugRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/service/DrugService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/service/DrugService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/drugs/druginfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/drugs/druginfo.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/drugs/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/drugs/search.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720249302088</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Implemented Cart">
+      <option name="closed" value="true" />
+      <created>1720299420445</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1720299420445</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +209,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Implemented Search Functionality" />
     <MESSAGE value="UI Enhancement" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI Enhancement" />
+    <MESSAGE value="Implemented Cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented Cart" />
   </component>
 </project>

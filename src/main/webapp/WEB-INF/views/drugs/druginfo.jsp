@@ -12,7 +12,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid c-padding">
-        <a class="navbar-brand" href="#"><span class="brand-color">Smart</span>Pharma</a>
+        <a class="navbar-brand" href="<c:url value="/"/>"><span class="brand-color">Smart</span>Pharma</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -20,8 +20,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <form class="d-flex navbar-search">
-                        <input class="form-control me-2" type="search" placeholder="Search for medicine..."
+                    <form class="d-flex navbar-search" method="get" action="<c:url value='/drugs/search'/>">
+                        <input class="form-control me-2" name="query" value="${param.query}" id="query" type="search"
+                               placeholder="Search for medicine..."
                                aria-label="Search">
                         <a href="#" class="icon" id="submitSearch"><i
                                 class="fa-solid fa-magnifying-glass icon-search"></i></a>
@@ -46,7 +47,7 @@
                     </c:when>
                     <c:otherwise>
                         <li class="nav-item">
-                            <a class="nav-link" href="login">Login</a>
+                            <a class="nav-link" href="<c:url value="/login"/>">Login</a>
                         </li>
                     </c:otherwise>
                 </c:choose>
