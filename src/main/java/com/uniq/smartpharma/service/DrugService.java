@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class DrugService {
@@ -24,6 +25,12 @@ public class DrugService {
             return Collections.emptyList();
         }
         return drugRepository.findByNameStartingWithIgnoreCase(search.toLowerCase());
+    }
+
+    // In DrugService.java
+    public List<String> getSuggestions(String query) {
+        return drugRepository.findNameByQuery(query + "%").stream().limit(10)  // limit the suggestions to 10
+                .collect(Collectors.toList());
     }
 
 

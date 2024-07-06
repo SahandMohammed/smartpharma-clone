@@ -13,6 +13,10 @@ public interface DrugRepository extends JpaRepository<Drug, Long> {
     // This query will only return drugs where the name starts with the provided search term
     @Query("SELECT d FROM Drug d WHERE LOWER(d.name) LIKE LOWER(CONCAT(:name, '%')) ORDER BY d.name")
     List<Drug> findByNameStartingWithIgnoreCase(@Param("name") String name);
+
+    // In DrugRepository.java
+    @Query("SELECT d.name FROM Drug d WHERE LOWER(d.name) LIKE LOWER(:query)")
+    List<String> findNameByQuery(@Param("query") String query);
 }
 
 

@@ -6,52 +6,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<c:url value='/assets/css/style.css'/>">
+    <link rel="stylesheet" href="<c:url value='/assets/css/druginfo.css'/>">
     <title>Drug Information</title>
-    <style>
-        body {
-            padding-top: 20px;
-            background-color: #f4f4f4;
-        }
-
-        .drug-info-container {
-            background-color: #ffffff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 20px auto;
-            width: 80%;
-            max-width: 800px;
-        }
-
-        .drug-info-container h1 {
-            color: #0056b3;
-        }
-    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">SmartPharma</a>
+    <div class="container-fluid c-padding">
+        <a class="navbar-brand" href="<c:url value='/'/>"><span class="brand-color">Smart</span>Pharma</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <form class="d-flex navbar-search" method="get" action="<c:url value='/drugs/search'/>">
+                        <input class="form-control me-2" type="text" id="searchQuery" name="query" placeholder="Search for medicine..."
+                               aria-label="Search">
+                        <a href="#" class="icon" id="submitSearch"><i
+                                class="fa-solid fa-magnifying-glass icon-search"></i></a>
+                    </form>
+                </li>
+            </ul>
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.jsp">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.jsp">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.jsp">Contact Us</a>
-                </li>
                 <c:choose>
                     <c:when test="${not empty sessionScope.user}">
                         <li class="nav-item">
-                            <a class="nav-link">Hello, ${sessionScope.user.username}!</a>
+                            <a class="nav-link">Welcome, ${sessionScope.user.username}!</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<c:url value='/logout'/>">Logout</a>
@@ -59,7 +40,7 @@
                     </c:when>
                     <c:otherwise>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.jsp">Login</a>
+                            <a class="nav-link" href="login">Login</a>
                         </li>
                     </c:otherwise>
                 </c:choose>

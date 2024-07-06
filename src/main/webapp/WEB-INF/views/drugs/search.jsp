@@ -6,28 +6,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<c:url value='/assets/css/style.css'/>">
+    <link rel="stylesheet" href="<c:url value='/assets/css/search.css'/>">
     <title>Search Results</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="<c:url value='/'/>">SmartPharma</a>
+    <div class="container-fluid c-padding">
+        <a class="navbar-brand" href="#"><span class="brand-color">Smart</span>Pharma</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value='/index.jsp'/>">Home</a>
+                    <form class="d-flex navbar-search">
+                        <input class="form-control me-2" type="search" placeholder="Search for medicine..."
+                               aria-label="Search">
+                        <a href="#" class="icon" id="submitSearch"><i class="fa-solid fa-magnifying-glass icon-search"></i></a>
+                    </form>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<c:url value='/about.jsp'/>">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<c:url value='/contact.jsp'/>">Contact Us</a>
-                </li>
+            </ul>
+            <ul class="navbar-nav">
                 <c:choose>
                     <c:when test="${not empty sessionScope.user}">
                         <li class="nav-item">
@@ -39,7 +39,7 @@
                     </c:when>
                     <c:otherwise>
                         <li class="nav-item">
-                            <a class="nav-link" href="<c:url value='/login'/>">Login</a>
+                            <a class="nav-link" href="login">Login</a>
                         </li>
                     </c:otherwise>
                 </c:choose>
@@ -47,6 +47,7 @@
         </div>
     </div>
 </nav>
+
 <div class="container mt-4">
     <h1 class="mb-3">Search Results</h1>
     <div class="list-group">
@@ -64,6 +65,7 @@
         </c:if>
     </div>
 </div>
+
 <script src="https://kit.fontawesome.com/7bba4c01e2.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
