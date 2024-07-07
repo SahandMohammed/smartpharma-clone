@@ -32,6 +32,8 @@
     </c:if>
 
     <a href="<c:url value="/admin/drugs/add"/>" class="btn btn-primary mb-3">Add New Drug</a>
+    <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search by name or ID...">
+
     <table class="table table-striped">
         <thead class="table-dark">
         <tr>
@@ -59,5 +61,26 @@
     </table>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('keyup', function (e) {
+            const searchText = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                // Assuming the ID is in the first cell (index 0) and the name is in the second cell (index 1)
+                const id = row.cells[0].textContent.toLowerCase();
+                const name = row.cells[1].textContent.toLowerCase();
+                if (id.includes(searchText) || name.includes(searchText)) {
+                    row.style.display = ''; // Show the row if the search matches
+                } else {
+                    row.style.display = 'none'; // Hide the row if the search does not match
+                }
+            });
+        });
+    });
+</script>
+
+
 </body>
 </html>
