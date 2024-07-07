@@ -74,8 +74,8 @@ public class AdminController {
 
 
     @GetMapping("/drugs/delete/{id}")
-    public String deleteDrug(@PathVariable Long id) {
+    public String deleteDrug(@PathVariable("id") Long id) {
         drugService.deleteDrugById(id);
-        return "redirect:admin/drugs";
+        return "redirect:/admin/drugs";
     }
 }

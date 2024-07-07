@@ -9,12 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b04107b-0f02-40cd-a144-d6245b82431a" name="Changes" comment="Implemented Drug Management">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/edit-drug.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/model/Drugs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/model/Drugs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/drugs.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/drugs.jsp" afterDir="false" />
+    <list default="true" id="8b04107b-0f02-40cd-a144-d6245b82431a" name="Changes" comment="Implemented Drug Update">
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +184,7 @@
       <workItem from="1720367923895" duration="396000" />
       <workItem from="1720368739970" duration="398000" />
       <workItem from="1720369411726" duration="4081000" />
-      <workItem from="1720378629480" duration="4538000" />
+      <workItem from="1720378629480" duration="4869000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented Search Functionality">
       <option name="closed" value="true" />
@@ -230,7 +226,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720374871739</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Implemented Drug Update">
+      <option name="closed" value="true" />
+      <created>1720384237482</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1720384237482</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,6 +246,7 @@
     <MESSAGE value="Implemented Cart" />
     <MESSAGE value="Enhancement" />
     <MESSAGE value="Implemented Drug Management" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented Drug Management" />
+    <MESSAGE value="Implemented Drug Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented Drug Update" />
   </component>
 </project>
