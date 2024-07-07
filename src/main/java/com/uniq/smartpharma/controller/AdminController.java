@@ -41,10 +41,12 @@ public class AdminController {
 
     @PostMapping("/drugs/add")
     public String addDrug(@ModelAttribute("drug") Drugs drug, RedirectAttributes redirectAttributes) {
+        System.out.println("OTC Status Received: " + drug.isOTC());  // Debugging line
         drugService.saveDrug(drug);
         redirectAttributes.addFlashAttribute("message", "Drug added successfully!");
         return "redirect:/admin/drugs";
     }
+
 
     @GetMapping("/drugs/edit/{id}")
     public String showEditDrugForm(@PathVariable("id") Long id, Model model) {

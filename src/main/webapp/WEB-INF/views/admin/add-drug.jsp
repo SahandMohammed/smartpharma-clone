@@ -27,10 +27,11 @@
         </div>
         <div class="mb-3">
             <label for="isOTC" class="form-label">Available Over-the-Counter:</label>
-            <select class="form-select" id="isOTC" name="isOTC" onchange="togglePriceInput()">
+            <select class="form-select" id="isOTC" name="isOTC">
                 <option value="true">Yes</option>
                 <option value="false">No</option>
             </select>
+
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">Price:</label>
@@ -54,6 +55,9 @@
     document.addEventListener('DOMContentLoaded', function () {
         togglePriceInput();
     });
+
+    // Also attach the function to the change event of the select element
+    document.getElementById('isOTC').addEventListener('change', togglePriceInput);
 </script>
 </body>
 </html>

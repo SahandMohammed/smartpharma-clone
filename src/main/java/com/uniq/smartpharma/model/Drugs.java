@@ -79,4 +79,8 @@ public class Drugs {
     public boolean getIsOTC() {
         return isOTC;
     }
+
+    public void setIsOTC(String isOTC) {
+        this.isOTC = Boolean.parseBoolean(isOTC);
+    }
 }
