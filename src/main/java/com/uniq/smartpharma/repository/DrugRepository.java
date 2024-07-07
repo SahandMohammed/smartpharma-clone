@@ -17,6 +17,9 @@ public interface DrugRepository extends JpaRepository<Drugs, Long> {
     // In DrugRepository.java
     @Query("SELECT d.name FROM Drugs d WHERE LOWER(d.name) LIKE LOWER(:query)")
     List<String> findNameByQuery(@Param("query") String query);
+
+    // This query will return drugs where the name contains the provided search term
+    List<Drugs> findByNameContainingIgnoreCase(String name);
 }
 
 

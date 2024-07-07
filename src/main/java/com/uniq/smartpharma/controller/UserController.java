@@ -29,7 +29,11 @@ public class UserController {
         User authenticatedUser = userService.authenticate(user.getEmail(), user.getPassword());
         if (authenticatedUser != null) {
             session.setAttribute("user", authenticatedUser);
-            return "redirect:/";
+            if (authenticatedUser.isAdmin()) {
+                return "redirect:/admin/admin-dashboard";  // Redirecting to the admin-specific controller
+            } else {
+                return "redirect:/";  // Redirect to a user-specific dashboard or home page
+            }
         } else {
             redirectAttributes.addFlashAttribute("error", "Invalid email or password");
             return "redirect:/login";

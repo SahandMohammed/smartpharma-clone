@@ -38,4 +38,19 @@ public class DrugService {
         return drugRepository.findById(id).orElse(null);
     }
 
+    // Add or update a drug
+    public Drugs saveDrug(Drugs drug) {
+        return drugRepository.save(drug);
+    }
+
+    // Delete a drug by ID
+    public void deleteDrugById(Long id) {
+        drugRepository.deleteById(id);
+    }
+
+    // Fetch all drugs
+    public List<Drugs> getAllDrugs() {
+        return drugRepository.findAll();
+    }
+
 }
