@@ -75,4 +75,8 @@ public class Drugs {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public boolean getIsOTC() {
+        return isOTC;
+    }
 }

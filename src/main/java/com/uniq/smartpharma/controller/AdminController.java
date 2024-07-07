@@ -2,8 +2,10 @@ package com.uniq.smartpharma.controller;
 
 import com.uniq.smartpharma.model.Drugs;
 import com.uniq.smartpharma.service.DrugService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.uniq.smartpharma.service.AdminService;
@@ -45,17 +47,31 @@ public class AdminController {
     }
 
     @GetMapping("/drugs/edit/{id}")
-    public String showEditDrugForm(@PathVariable Long id, Model model) {
+    public String showEditDrugForm(@PathVariable("id") Long id, Model model) {
         Drugs drug = drugService.findDrugById(id);
-        model.addAttribute("drug", drug);
-        return "admin/admin-edit-drug";
+        if (drug != null) {
+            model.addAttribute("drug", drug);
+            return "/admin/edit-drug";
+        } else {
+            return "redirect:/admin/drugs";
+        }
     }
 
+    // Method to process the form submission
     @PostMapping("/drugs/update")
-    public String updateDrug(@ModelAttribute("drug") Drugs drug) {
+    public String updateDrug(@ModelAttribute("drug") Drugs drug, HttpServletRequest request, RedirectAttributes redirectAttributes) {
+        System.out.println("Received isOTC: " + request.getParameter("isOTC")); // Check raw parameter value
+        System.out.println("Drug object isOTC before set: " + drug.isOTC());
+
+        // Explicitly set isOTC based on parameter
+        drug.setOTC(Boolean.parseBoolean(request.getParameter("isOTC")));
+        System.out.println("Drug object isOTC after set: " + drug.isOTC());
+
         drugService.saveDrug(drug);
-        return "redirect:admin/drugs";
+        redirectAttributes.addFlashAttribute("message", "Drug updated successfully!");
+        return "redirect:/admin/drugs";
     }
+
 
     @GetMapping("/drugs/delete/{id}")
     public String deleteDrug(@PathVariable Long id) {

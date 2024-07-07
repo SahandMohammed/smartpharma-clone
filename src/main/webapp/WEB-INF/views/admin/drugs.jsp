@@ -50,8 +50,8 @@
                 <td>${drug.price}</td>
                 <td>${drug.description}</td>
                 <td class="btn-actions">
-                    <a href="/edit-drug?id=${drug.id}" class="btn btn-info">Edit</a>
-                    <a href="/delete-drug?id=${drug.id}" class="btn btn-danger">Delete</a>
+                    <a href="<c:url value='/admin/drugs/edit/${drug.id}'/>" class="btn btn-info">Edit</a>
+                    <a href="<c:url value='/admin/drugs/delete/${drug.id}'/>" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         </c:forEach>
