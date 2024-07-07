@@ -39,20 +39,25 @@
                 <c:choose>
                     <c:when test="${not empty sessionScope.user}">
                         <li class="nav-links login"><a href="<c:url value='/logout'/>"><i
-                                class="fa-solid fa-right-to-bracket"></i>Logout</a></li>
+                                class="fa-solid fa-right-to-bracket"></i> Logout</a></li>
                         <li>
                             <p>Hey! ${sessionScope.user.username}</p>
                         </li>
+                        <!-- Check if user is admin -->
+                        <c:if test="${sessionScope.user.isAdmin()}">
+                            <li class="nav-links"><a href="<c:url value='/admin/admin-dashboard'/>">Admin Panel</a></li>
+                        </c:if>
                     </c:when>
                     <c:otherwise>
                         <li class="nav-links login"><a href="login"><i
-                                class="fa-solid fa-right-to-bracket"></i>Login</a></li>
+                                class="fa-solid fa-right-to-bracket"></i> Login</a></li>
                     </c:otherwise>
                 </c:choose>
             </ul>
         </div>
     </div>
 </nav>
+
 
 <!-- Hero Section -->
 <div class="hero">
