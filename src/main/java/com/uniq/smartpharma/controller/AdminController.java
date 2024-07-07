@@ -1,7 +1,9 @@
 package com.uniq.smartpharma.controller;
 
 import com.uniq.smartpharma.model.Drugs;
+import com.uniq.smartpharma.model.Order;
 import com.uniq.smartpharma.service.DrugService;
+import com.uniq.smartpharma.service.OrderService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,9 @@ public class AdminController {
 
     @Autowired
     private DrugService drugService;
+
+    @Autowired
+    private OrderService orderService;
 
     @GetMapping("/admin-dashboard")
     public String adminDashboard(Model model) {
@@ -80,4 +85,19 @@ public class AdminController {
         drugService.deleteDrugById(id);
         return "redirect:/admin/drugs";
     }
+
+    @GetMapping("/orders")
+    public String listOrders(Model model) {
+        List<Order> orders = orderService.getAllOrders();
+        model.addAttribute("orders", orders);
+        return "admin/orders-list"; // View to display orders
+    }
+
+    @GetMapping("/orders/view/{id}")
+    public String viewOrderDetails(@PathVariable("id") Long orderId, Model model) {
+        Order order = orderService.findById(orderId);
+        model.addAttribute("order", order);
+        return "admin/order-details";
+    }
+
 }

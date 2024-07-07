@@ -9,11 +9,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b04107b-0f02-40cd-a144-d6245b82431a" name="Changes" comment="Implemented Search">
+    <list default="true" id="8b04107b-0f02-40cd-a144-d6245b82431a" name="Changes" comment="Implemented drug section in admin">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/controller/OrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/model/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/model/OrderItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/repository/OrderItemRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/repository/OrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/service/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/order-details.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/orders-list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/checkout.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/thank-you.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/model/Drugs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/model/Drugs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/add-drug.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/add-drug.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/controller/DrugController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uniq/smartpharma/controller/DrugController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cart.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +44,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="s.0.0.3" />
+        <entry key="$PROJECT_DIR$" value="s.0.0.4" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,21 +71,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Tomcat Server.Tomcat 10.1.25.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;s.0.0.4&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.Tomcat 10.1.25.executor": "Run",
+    "git-widget-placeholder": "s.0.0.5",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Tomcat 10.1.25" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.25" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
@@ -187,7 +197,7 @@
       <workItem from="1720367923895" duration="396000" />
       <workItem from="1720368739970" duration="398000" />
       <workItem from="1720369411726" duration="4081000" />
-      <workItem from="1720378629480" duration="5608000" />
+      <workItem from="1720378629480" duration="8582000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented Search Functionality">
       <option name="closed" value="true" />
@@ -253,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720384669437</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Implemented drug section in admin">
+      <option name="closed" value="true" />
+      <created>1720385231228</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1720385231228</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,6 +286,7 @@
     <MESSAGE value="Implemented Drug Update" />
     <MESSAGE value="Implemented Delete" />
     <MESSAGE value="Implemented Search" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented Search" />
+    <MESSAGE value="Implemented drug section in admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented drug section in admin" />
   </component>
 </project>

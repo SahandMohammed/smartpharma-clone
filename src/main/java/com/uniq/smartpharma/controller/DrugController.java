@@ -4,6 +4,7 @@ import com.uniq.smartpharma.model.Cart;
 import com.uniq.smartpharma.model.CartItem;
 import com.uniq.smartpharma.model.Drugs;
 import com.uniq.smartpharma.service.DrugService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -115,11 +116,11 @@ public class DrugController {
         return "cart";
     }
 
-    @GetMapping("/checkout")
-    public String checkout(SessionStatus status) {
-        status.setComplete(); // Clear the session attribute named 'cart'
-        return "redirect:/";
-    }
+//    @GetMapping("/checkout")
+//    public String checkout(SessionStatus status) {
+//        status.setComplete(); // Clear the session attribute named 'cart'
+//        return "redirect:/";
+//    }
 
     @PostMapping("/update-cart")
     public String updateCartItem(@RequestParam("id") Long id, @RequestParam("quantity") int quantity, @ModelAttribute("cart") Cart cart, RedirectAttributes redirectAttributes) {

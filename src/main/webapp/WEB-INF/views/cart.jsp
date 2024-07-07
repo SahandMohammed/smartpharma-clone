@@ -50,7 +50,7 @@
         </tr>
         </tfoot>
     </table>
-    <a href="<c:url value='/checkout'/>" class="btn btn-success">Proceed to Checkout</a>
+    <a href="<c:url value='/orders/checkout'/>" class="btn btn-success">Proceed to Checkout</a>
 </div>
 <script src="https://kit.fontawesome.com/7bba4c01e2.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
