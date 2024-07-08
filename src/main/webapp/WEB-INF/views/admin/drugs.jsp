@@ -50,7 +50,7 @@
         </div>
     </div>
 </nav>
-<div class="container">
+<div class="container" style="margin-top: 30px;">
     <h1>Manage Drugs</h1>
 
     <!-- Display success message from flash attributes -->
