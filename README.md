@@ -2,7 +2,7 @@
 SmartPharma is a comprehensive web application designed to help users search and find detailed information about various drugs and medicines. Built using Java with Maven and Spring Boot, SmartPharma also enables users to purchase over-the-counter (OTC) medicines directly from the application.
 
 ## Key Features
-- **Drug Search: **Users can search for drugs and medicines, with search suggestions provided as they type in the search field.
+- **Drug Search:** **Users can search for drugs and medicines, with search suggestions provided as they type in the search field.
   
 - **Detailed Information:** Each drug has a dedicated page displaying its description, usage, side effects, and other relevant details.
   
