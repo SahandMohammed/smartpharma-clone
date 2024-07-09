@@ -8,7 +8,7 @@ SmartPharma is a comprehensive web application designed to help users search and
   
 - **OTC Medicine Purchase:** Users can buy OTC medicines online, with options to select the desired quantity and add items to their cart.
   
-- **User Roles:** The application supports multiple user roles, including Admin, Pharmacist, and Pharmacist Technician, each with their own dashboard.
+- **User Roles:** The application supports multiple user roles, including Admin, and Pharmacist.
   
 - **Checkout Process:** A streamlined checkout process allows users to enter their personal information, place orders, and receive a thank you message upon completion.
   
