@@ -44,12 +44,15 @@ If the repository is downloaded as a zip file, extract it to a suitable location
 ### Update Database Configuration
 - Navigate to WEB-INF in your project directory in IntelliJ and open dispatcher-servlet.xml.
 - Update the datasource bean with the correct database credentials, including the URL, username, and password that match your MySQL setup in XAMPP.
-- ```<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+  ```
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/smartpharmadb?useSSL=false"/>
         <property name="username" value="root"/>
         <property name="password" value=""/>
-    </bean>```
+    </bean>
+  ```
 
 ### Run the Project
 - Back in IntelliJ, select the run configuration you created for Tomcat and click the run button (green play button).
